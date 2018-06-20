@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @message = Message.new
 
     if current_user == @user
       following_ids = current_user.following

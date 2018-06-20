@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "/follow/:id" => "users#follow", as: :follow
   get "/unfollow/:id" => "users#unfollow", as: :unfollow
 
+  post "/messages" => "messages#create", as: :messages
+
 end

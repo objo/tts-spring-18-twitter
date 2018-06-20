@@ -57,3 +57,6 @@ gem 'devise'
 gem 'faker'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'rails-html-sanitizer', '~> 1.0.4'
+gem  'loofah', '~> 2.2.1'

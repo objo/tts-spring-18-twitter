@@ -21,6 +21,18 @@
 </div>
 
 <div class="right_side">
+  <% if current_user == @user %>
+    <%= form_for @message do |f|  %>
+      <div class="field">
+        <%= f.label :body %><br />
+        <%= f.text_area :body %>
+      </div>
+      <div class="field">
+        <%= f.submit "Send Message", class: 'btn btn-primary float-right' %>
+      </div>
+    <% end %>
+  <% end %>
+  <br><br><br>
   <% @messages.each do |message| %>
     <div class="tweet">
       <%= image_tag url_for(message.user.avatar), width: '20px' %>
