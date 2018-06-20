@@ -1,10 +1,31 @@
-<%= image_tag 'default-icon.png', width: '100px' %>
-<br>
-<%= @user.username %>
-<br>
-<%= @user.full_name %>
-<br>
-<%= @user.location %>
-<br>
-<br>
-<%= @user.bio %>
+<div class="left_side">
+  <%= image_tag url_for(@user.avatar), width: '100px' %>
+  <br>
+  @<%= @user.username %>
+  <br>
+  <%= @user.full_name %>
+  <br>
+  <%= @user.location %>
+  <br>
+  <br>
+  <%= @user.bio %>
+  <br>
+  <br>
+  <% unless @user == current_user %>
+    <% if current_user.following.include?(@user.id) %>
+      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="right_side">
+  <% @messages.each do |message| %>
+    <div class="tweet">
+      <%= image_tag url_for(message.user.avatar), width: '20px' %>
+      <p class="tweet-body"><%= message.body %></p>
+      <p class="tweet-date">Posted: <%= time_ago_in_words(message.created_at) %> ago</p>
+    </div>
+  <% end %>
+</div>
