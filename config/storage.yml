@@ -1,9 +1,6 @@
 local:
-  service: S3
-  access_key_id: AKIAILOUKFSQQLLDHAPA
-  secret_access_key: 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
-  bucket: tts-winter-objo
-  region: us-east-1
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
 
 test:
   service: Disk
