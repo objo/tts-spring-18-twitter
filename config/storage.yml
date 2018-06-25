@@ -1,6 +1,9 @@
 local:
-  service: Disk
-  root: <%= Rails.root.join("storage") %>
+  service: S3
+  access_key_id: AKIAILOUKFSQQLLDHAPA
+  secret_access_key: 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
+  bucket: tts-winter-objo
+  region: us-east-1
 
 test:
   service: Disk
@@ -10,5 +13,5 @@ amazon:
   service: S3
   access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
   secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
-  bucket: tts-objo
+  bucket: tts-winter-objo
   region: us-east-1
