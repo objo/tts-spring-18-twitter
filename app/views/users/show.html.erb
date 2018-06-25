@@ -1,4 +1,4 @@
-<div class="left_side">
+<div class="left_side" id="left_side_div">
   <%= image_tag url_for(@user.avatar), width: '100px' %>
   <br>
   @<%= @user.username %>
@@ -13,9 +13,11 @@
   <br>
   <% unless @user == current_user %>
     <% if current_user.following.include?(@user.id) %>
-      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger' %>
+      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn' %>
+      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn', style: "display: none;"%>
     <% else %>
-      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary' %>
+      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn'%>
+      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn', style: "display: none;" %>
     <% end %>
   <% end %>
 </div>
@@ -28,7 +30,7 @@
         <%= f.text_area :body %>
       </div>
       <div class="field">
-        <%= f.submit "Send Message", class: 'btn btn-primary float-right' %>
+        <%= f.submit "Send Message", class: 'btn btn-primary float-right', id: 'create_tweet_btn' %>
       </div>
     <% end %>
   <% end %>

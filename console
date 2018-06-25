@@ -1,208 +1,0 @@
-Script started on Mon Jun 18 19:53:43 2018
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;objo@objo-personal-laptop: ~/tts/twitter]1;~/tts/twitter[0m[27m[24m[J[01;32m➜  [36m~/tts/twitter[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=rrails console[?1l>
-]2;rails console]1;railsRunning via Spring preloader in process 39749
-Loading development environment (Rails 5.2.0)
-2.4.1 :001 > User.find(1)
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-ActiveRecord::RecordNotFound: Couldn't find User with 'id'=1
-	from (irb):1
-2.4.1 :002 > User.find(1)[1P)1)[1P)2)
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-18 23:48:37", generated: nil> 
-2.4.1 :003 > User[K[K[K[Kid = 2
- => 2 
-2.4.1 :004 > id [K_2 = User.last.id
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
- => 82 
-2.4.1 :005 > User.find([2,82])
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN (?, ?)[0m  [["id", 2], ["id", 82]]
- => [#<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-18 23:48:37", generated: nil>, #<User id: 82, username: "lisa.towne", first_name: "Kenny", last_name: "Schinner", location: "Grantmouth, Delaware", bio: "Voluptates ad fugit est. Nisi ut consequatur nihil...", email: "gus_labadie@kertzmann.name", created_at: "2018-06-18 23:17:12", updated_at: "2018-06-18 23:17:12", generated: true>] 
-2.4.1 :006 > exit
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;objo@objo-personal-laptop: ~/tts/twitter]1;~/tts/twitter[0m[27m[24m[J[01;32m➜  [36m~/tts/twitter[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=rrails generate migrate ion add_folol  lowing_tu o_users[?1l>
-]2;rails generate migration add_following_to_users]1;railsRunning via Spring preloader in process 39891
-[1m[37m      invoke[0m  active_record
-[1m[32m      create[0m    db/migrate/20180618235529_add_following_to_users.rb
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;objo@objo-personal-laptop: ~/tts/twitter]1;~/tts/twitter[0m[27m[24m[J[01;32m➜  [36m~/tts/twitter[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=rrails db:migrate[?1l>
-]2;rails db:migrate]1;rails== 20180618235529 AddFollowingToUsers: migrating ==============================
--- add_column(:users, :following, :text)
-   -> 0.0009s
-== 20180618235529 AddFollowingToUsers: migrated (0.0010s) =====================
-
-[1m[7m%[27m[1m[0m                                                                                                                                     ]2;objo@objo-personal-laptop: ~/tts/twitter]1;~/tts/twitter[0m[27m[24m[J[01;32m➜  [36m~/tts/twitter[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K[?1h=rrair ls cosn  nsole[?1l>
-]2;rails console]1;railsRunning via Spring preloader in process 40217
-Loading development environment (Rails 5.2.0)
-2.4.1 :001 > id = User.all.sample . i d [C 
-  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 77 
-2.4.1 :002 > u = User.first
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-18 23:48:37", generated: nil, following: []> 
-2.4.1 :003 > u.following << id 
- => [77] 
-2.4.1 :004 > u.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[C[4P = User.firstid = User.all.sample.id  
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 70 
-2.4.1 :005 > id = User.all.sample.id  [C[C[C[C[C[C[C[C[C[C[C[C[C[7Pu.following << id[C
- => [77, 70] 
-2.4.1 :006 > u.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pu.following << id[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4P = User.first
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-18 23:48:37", generated: nil, following: []> 
-2.4.1 :007 > u = User.first.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 2 
-2.4.1 :008 > id = User.all.sample.id  [C[C[C[C[C[C[C[C[C[C[C[C[C[11Pu = User.first.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pu.following << id[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 69 
-2.4.1 :009 > id = User.all.sample.id  [C[C[C[C[C[C[C[C[C[C[C[C[C[11Pu = User.first.following << id 
- => [69] 
-2.4.1 :010 > u.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 68 
-2.4.1 :011 > id = User.all.sample.id  [C[C[C[C[C[C[C[C[C[C[C[C[C[7Pu.following << id[C
- => [69, 68] 
-2.4.1 :012 > u.following << id [C[C[C[C[C[C[C[C[C[C[C[C[C[7@id = User.all.sample.id [C
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
- => 65 
-2.4.1 :013 > id = User.all.sample.id  [C[C[C[C[C[C[C[C[C[C[C[C[C[7Pu.following << id[C
- => [69, 68, 65] 
-2.4.1 :014 > u.save!
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "following" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-06-19 00:00:15.082716"], ["following", "---\n- 69\n- 68\n- 65\n"], ["id", 2]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
- => true 
-2.4.1 :015 > 
-2.4.1 :016 >   User.f[Kfirst.messages.destroy_all 
-  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
-  [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?[0m  [["user_id", 2]]
-  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Destroy (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 401]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 402]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 403]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 404]]
-  [1m[36mMessage Destroy (0.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 405]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 406]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 407]]
-  [1m[36mMessage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 408]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 409]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 410]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 411]]
-  [1m[36mMessage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 412]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 413]]
-  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 414]]
-  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 415]]
-  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 416]]
-  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 417]]
-  [1m[36mMessage Destroy (0.3ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 418]]
-  [1m[36mMessage Destroy (0.6ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 419]]
-  [1m[36mMessage Destroy (0.2ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 420]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
- => [#<Message id: 401, body: "It’s wingardium leviOsa, not leviosAH.", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 402, body: "I solemnly swear that I am up to no good.", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 403, body: "Happiness can be found even in the darkest of time...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 404, body: "It does not do to dwell on dreams and forget to li...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 405, body: "Never trust anything that can think for itself if ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 406, body: "Things we lose have a way of coming back to us in ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 407, body: "You're a wizard, Harry.", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 408, body: "You sort of start thinking anything’s possible if ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 409, body: "No story lives unless someone wants to listen. The...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 410, body: "To the well-organized mind, death is but the next ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 411, body: "Dark and difficult times lie ahead. Soon we must a...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 412, body: "You're a wizard, Harry.", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 413, body: "No story lives unless someone wants to listen. The...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 414, body: "After all this time? Always.", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 415, body: "You sort of start thinking anything’s possible if ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 416, body: "Things we lose have a way of coming back to us in ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 417, body: "Words are in my not-so-humble opinion, the most in...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 418, body: "Words are in my not-so-humble opinion, the most in...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 419, body: "It takes a great deal of bravery to stand up to ou...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">, #<Message id: 420, body: "It is our choices, Harry, that show what we truly ...", user_id: 2, created_at: "2018-06-18 22:10:32", updated_at: "2018-06-18 22:10:32">] 
-2.4.1 :017 > u = User.first 
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-19 00:00:15", generated: nil, following: [69, 68, 65]> 
-2.4.1 :018 > User.first.messages.destroy_all[C[C[C[C[C[C[C[C[C[C[C[C[C[K20.times do
-2.4.1 :019 >     
-2.4.1 :020 >         u.messages.create! body: Faker::HarryPotter.quote, created_at: Faker::Date.between(2.months.ago, Time.now)
-2.4.1 :021?>     end
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Happiness can be found even in the darkest of times if only one remembers to turn on the light."], ["user_id", 2], ["created_at", "2018-06-05 00:00:00"], ["updated_at", "2018-06-19 00:24:38.288226"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "You're a wizard, Harry."], ["user_id", 2], ["created_at", "2018-06-13 00:00:00"], ["updated_at", "2018-06-19 00:24:38.292149"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Just because you have the emotional range of a teaspoon doesn’t mean we all have."], ["user_id", 2], ["created_at", "2018-06-17 00:00:00"], ["updated_at", "2018-06-19 00:24:38.295756"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "To the well-organized mind, death is but the next great adventure."], ["user_id", 2], ["created_at", "2018-04-29 00:00:00"], ["updated_at", "2018-06-19 00:24:38.299470"]]
-  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "After all this time? Always."], ["user_id", 2], ["created_at", "2018-05-23 00:00:00"], ["updated_at", "2018-06-19 00:24:38.303529"]]
-  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["user_id", 2], ["created_at", "2018-05-21 00:00:00"], ["updated_at", "2018-06-19 00:24:38.308413"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 2], ["created_at", "2018-05-11 00:00:00"], ["updated_at", "2018-06-19 00:24:38.312828"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "It is our choices, Harry, that show what we truly are, far more than our abilities."], ["user_id", 2], ["created_at", "2018-06-12 00:00:00"], ["updated_at", "2018-06-19 00:24:38.317380"]]
-  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "After all this time? Always."], ["user_id", 2], ["created_at", "2018-05-30 00:00:00"], ["updated_at", "2018-06-19 00:24:38.323851"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 2], ["created_at", "2018-04-21 00:00:00"], ["updated_at", "2018-06-19 00:24:38.329146"]]
-  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "There are some things you can't share without ending up liking each other, and knocking out a twelve-foot mountain troll is one of them."], ["user_id", 2], ["created_at", "2018-05-23 00:00:00"], ["updated_at", "2018-06-19 00:24:38.336922"]]
-  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Things we lose have a way of coming back to us in the end, if not always in the way we expect."], ["user_id", 2], ["created_at", "2018-05-23 00:00:00"], ["updated_at", "2018-06-19 00:24:38.344152"]]
-  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are."], ["user_id", 2], ["created_at", "2018-05-15 00:00:00"], ["updated_at", "2018-06-19 00:24:38.350520"]]
-  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["user_id", 2], ["created_at", "2018-04-19 00:00:00"], ["updated_at", "2018-06-19 00:24:38.358052"]]
-  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Never trust anything that can think for itself if you can't see where it keeps its brain."], ["user_id", 2], ["created_at", "2018-06-13 00:00:00"], ["updated_at", "2018-06-19 00:24:38.363477"]]
-  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Words are in my not-so-humble opinion, the most inexhaustible form of magic we have, capable both of inflicting injury and remedying it."], ["user_id", 2], ["created_at", "2018-05-18 00:00:00"], ["updated_at", "2018-06-19 00:24:38.368964"]]
-  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "I solemnly swear that I am up to no good."], ["user_id", 2], ["created_at", "2018-06-11 00:00:00"], ["updated_at", "2018-06-19 00:24:38.375918"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "I solemnly swear that I am up to no good."], ["user_id", 2], ["created_at", "2018-05-23 00:00:00"], ["updated_at", "2018-06-19 00:24:38.381424"]]
-  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "I solemnly swear that I am up to no good."], ["user_id", 2], ["created_at", "2018-05-10 00:00:00"], ["updated_at", "2018-06-19 00:24:38.385931"]]
-  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
-  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?"], ["user_id", 2], ["created_at", "2018-04-23 00:00:00"], ["updated_at", "2018-06-19 00:24:38.389819"]]
-  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
- => 20 
-2.4.1 :022 > reload!
-Reloading...
- => true 
-2.4.1 :023 > User.first
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-19 00:00:15", generated: nil, following: [69, 68, 65]> 
-2.4.1 :024 > User.first.following
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => [69, 68, 65] 
-2.4.1 :025 > r[Karray [K = [1,2,3,4, :fv[Kive]
- => [1, 2, 3, 4, :five] 
-2.4.1 :026 > array.delet(:five{[K)
-NoMethodError: undefined method `delet' for [1, 2, 3, 4, :five]:Array
-Did you mean?  delete
-	from (irb):26
-2.4.1 :027 > array.delet(:five)e(:five)
- => :five 
-2.4.1 :028 > array
- => [1, 2, 3, 4] 
-2.4.1 :029 > User.fr[Kirst.followy[King
-  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => [137, 148, 142, 142, 142, 142] 
-2.4.1 :030 > User.first.followy[King.delete(142)
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => 142 
-2.4.1 :031 > u = User.first
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => #<User id: 2, username: "objo", first_name: "Joe", last_name: "O'Brien", location: "Westerville, OH", bio: "sthsntsnht", email: "joe@objo.com", created_at: "2018-06-11 23:17:20", updated_at: "2018-06-20 22:52:21", generated: nil, following: [137, 148, 142, 142, 142, 142]> 
-2.4.1 :032 > u.following.delete(142)
- => 142 
-2.4.1 :033 > u.save
-  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "following" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-06-20 22:53:10.912187"], ["following", "---\n- 137\n- 148\n"], ["id", 2]]
-  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
- => true 
-2.4.1 :034 > u.following
- => [137, 148] 
-2.4.1 :035 > u.following[5Psavefollowing.delete(142)[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9P = User.firstUser.first.following.delete(142)[K
-  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
- => [137, 148, 140] 
-2.4.1 :036 > 
