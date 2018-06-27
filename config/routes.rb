@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post "/messages" => "messages#create", as: :messages
 
+  delete "/message/:id" => "messages#destroy", as: :delete_message
+
 end
