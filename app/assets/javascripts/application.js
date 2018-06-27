@@ -32,15 +32,25 @@ function changeBackgroundColor() {
 // $(document).ready(changeBackgroundColor);
 
 function changeButton() {
-  $('#follow_btn').click(function(e) {
-    e.preventDefault();
+  $('#follow_btn').click(function() {
     $(this).fadeOut();
-    $('#unfollow_btn').fadeIn();
+    $('#unfollow_btn').delay(400).fadeIn();
   });
-  $('#unfollow_btn').click(function(e) {
-    e.preventDefault();
+  $('#unfollow_btn').click(function() {
     $(this).fadeOut();
-    $('#follow_btn').fadeIn();
+    $('#follow_btn').delay(400).fadeIn();
   });
 }
 $(document).ready(changeButton);
+
+function deleteMessage(id) {
+  console.log("Deleting message " + id);
+  $.ajax({
+      url: '/message/' + id,
+      type: 'DELETE',
+      data: { authenticity_token: $('[name="csrf-token"]')[0].content},
+      success: function(result) {
+        $('#message_' + id).fadeOut(500);
+      }
+  });
+}

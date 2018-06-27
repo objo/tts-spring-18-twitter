@@ -13,11 +13,11 @@
   <br>
   <% unless @user == current_user %>
     <% if current_user.following.include?(@user.id) %>
-      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn' %>
-      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn', style: "display: none;"%>
+      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn', remote: true %>
+      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn', style: "display: none;", remote: true %>
     <% else %>
-      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn'%>
-      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn', style: "display: none;" %>
+      <%= link_to "Follow", follow_url(id: @user.id), class: 'btn btn-primary', id: 'follow_btn', remote: true %>
+      <%= link_to "Unfollow", unfollow_url(id: @user.id), class: 'btn btn-danger', id: 'unfollow_btn', style: "display: none;", remote: true %>
     <% end %>
   <% end %>
 </div>
@@ -36,8 +36,11 @@
   <% end %>
   <br><br><br>
   <% @messages.each do |message| %>
-    <div class="tweet">
+    <div class="tweet" id="message_<%= message.id %>">
       <%= image_tag url_for(message.user.avatar), width: '20px' %>
+      <% if message.user == current_user %>
+        <i class="far fa-trash-alt float-right" onclick="deleteMessage(<%= message.id %>)"></i>
+      <% end %>
       <p class="tweet-body"><%= message.body %></p>
       <p class="tweet-date">Posted: <%= time_ago_in_words(message.created_at) %> ago</p>
     </div>
